@@ -141,6 +141,7 @@ class Barrage {
       tunnelHeight: 0,
       tunnelNum: 0,
       tunnels: [],
+      globalPaused: false,
       idleTunnels: null,
       enableTunnels: null,
       distance: 2000,
@@ -464,6 +465,21 @@ class Barrage {
     bullet.paused = !bullet.paused
     this.comp.setData({
       [`tunnels[${tunnelId}].bullets[${bulletId}]`]: bullet
+    })
+  }
+
+
+  // 开启弹幕滚动
+  play() {
+    this.comp.setData({
+      globalPaused: false
+    })
+  }
+
+  // 停止弹幕滚动
+  pause() {
+    this.comp.setData({
+      globalPaused: true
     })
   }
 }

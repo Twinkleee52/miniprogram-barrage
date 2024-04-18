@@ -9,7 +9,7 @@
       <block wx:for="{{tunnel.bullets}}" wx:key="bulletId" wx:for-item="bullet" wx:for-index="bulletId">
         <view 
           class="bullet-item {{bullet.duration > 0 ? 'bullet-move' : ''}} {{bullet.paused ? 'paused' : ''}}" 
-          style="color: {{bullet.paused ? '#fff' : bullet.color}}; height: {{tunnel.height}}px; line-height: {{tunnel.height}}px; animation-duration: {{bullet.duration}}s; animation-play-state: {{bullet.paused ? 'paused' : 'running'}}" 
+          style="color: {{bullet.paused ? '#fff' : bullet.color}}; height: {{tunnel.height}}px; line-height: {{tunnel.height}}px; animation-duration: {{bullet.duration}}s; animation-play-state: {{bullet.paused || globalPaused ? 'paused' : 'running'}}" 
           data-tunnelid="{{tunnelId}}" 
           data-bulletid="{{bulletId}}" 
           bindanimationend="onAnimationend" 
